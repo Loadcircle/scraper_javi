@@ -10,11 +10,18 @@ url = 'http://ilas.cass.cn/ens_new/publicaciones/rdel/rdel/2003/01'
 
 content = requests.get(url).content
 
-print(content)
-
 resolve_content = BeautifulSoup(content, 'lxml')
 
 div = resolve_content.findAll('div', {'class': 'content_body'})
+
+
+
+
+
+
+
+
+
 
 # print(div[0])
 

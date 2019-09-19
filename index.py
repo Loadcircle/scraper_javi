@@ -6,15 +6,25 @@ import tqdm
 import re
 import timeit
 
-url = 'http://ilas.cass.cn/ens_new/publicaciones/rdel/rdel/2003/01'
+url = 'http://ilas.cass.cn/ens_new/publicaciones/rdel/'
 
 content = requests.get(url).content
 
 resolve_content = BeautifulSoup(content, 'lxml')
 
-div = resolve_content.findAll('div', {'class': 'content_body'})
+div = resolve_content.findAll('div', {'class': 'cbw_list'})
 
+urls = []
 
+for i in div[0].findAll('a', href=True):
+    urls.append('http://ilas.cass.cn/ens_new/publicaciones/rdel' + i['href'][1:])
+
+final_url = []
+
+for u in urls:
+    c = requests.get(u).content
+    r = BeautifulSoup(c, 'lxml')
+    print(r)
 
 
 

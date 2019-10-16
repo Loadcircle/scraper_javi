@@ -5,6 +5,7 @@ import pandas
 import tqdm
 import re
 import timeit
+import time
 import json
 from pandas import DataFrame
 from selenium import webdriver
@@ -37,10 +38,55 @@ buscador = driver.find_element_by_id('txt_1_value1')
 buscador.send_keys("秘鲁")
 
 driver.find_element_by_id('btnSearch').click()
+
 print('buscando')
 
 
-driver.implicitly_wait(30) # seconds
+
+
+# driver.implicitly_wait(20) # seconds
+time.sleep(20)
+# driver.implicitly_wait(20) # seconds
+print('pasados 20 segundos')
+
+html_from_page = driver.page_source
+
+soup = BeautifulSoup(html_from_page, 'html.parser')
+
+#table = soup.findAll("table")
+
+#print(len(table))
+#print(table)
+#print(table[1].find("tr"))
+
+#print(",".join([th.text for th in table[1].find("tr").find_all("th")]))
+
+
+print(soup.findAll("iframe")[1])
+
+iframe = soup.findAll("iframe")[1]
+
+time.sleep(3)
+## You have to switch to the iframe like so: ##
+
+print(driver.find_element_by_tag_name("iframe"))
+
+driver.switch_to.frame(driver.find_element_by_tag_name("iframe"))
+
+html_from_page2 = driver.page_source
+
+print(html_from_page2)
+
+time.sleep(3)
+
+button = driver.find_element_by_class_name('GridTableContent')
+
+print(button)
+
+
+
+
+# driver.implicitly_wait(20) # seconds
 
 
 myDynamicElement = driver.find_element_by_id("J_ORDER")

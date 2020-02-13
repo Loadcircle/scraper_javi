@@ -5,7 +5,7 @@ from googletrans import Translator
 # translator= Translator(to_lang="es")
 
 
-df = pd.read_excel (r'C:\Users\PC\Desktop\cnki_results_final.xlsx') #PARA LEER EXCEL
+df = pd.read_excel (r'C:\Users\PC\Desktop\International order Journal EXCEL.xlsx') #PARA LEER EXCEL
 
 # df = pd.read_csv(r'C:\Users\PC\Desktop\CNKI_final_db.csv') #PARA LEER CSV
 
@@ -28,7 +28,7 @@ for i, row in df.iterrows():
         print(e) 
 
 # print(df)
-
+    
 
 try:
     export_csv = df.to_csv (r'C:\Users\PC\Desktop\CNKI_CSV.csv', index = None, encoding='utf_32') #Don't forget to add '.csv' at the end of the path

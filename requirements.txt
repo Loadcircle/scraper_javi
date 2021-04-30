@@ -36,7 +36,7 @@ toml==0.10.0
 tox==3.14.0
 tqdm==4.36.1
 translate==3.5.0
-urllib3==1.25.4
+urllib3==1.25.8
 virtualenv==16.7.5
 xlrd==1.2.0
 zipp==0.6.0
